@@ -9,6 +9,8 @@
 #include "time.h"
 #include "stdlib.h"
 
+#include "mes_fonctions.hpp"
+
 namespace internal
 {
   // 💀💀💀💀💀💀💀💀 DON'T TOUCH THIS BLOCK 💀💀💀💀💀💀💀💀💀 ///
@@ -53,21 +55,51 @@ std::vector<int> backgroundSetup(const int &nx, const int &ny)
 
 void add_snake(const std::vector<std::pair<int, int>> &snake, std::vector<int> &bg, int nx, int ny)
 {
+  for (std::pair<int, int> point : snake)
+  {
+    int x = point.first;
+    int y = point.second;
+    bg[y*nx + x] = 3;
+  }
   // 👉️ Your code here 👈️
 }
 
 void remove_snake(const std::vector<std::pair<int, int>> &snake, std::vector<int> &bg, int nx, int ny)
 {
+    for (std::pair<int, int> point : snake)
+  {
+    int x = point.first;
+    int y = point.second;
+    bg[y*nx + x] = 0;
+  }
   // 👉️ Your code here 👈️
 }
 
 std::array<int, 2> snake_movement(char key)
 {
+
+  if(key == z)
+  {
+    return {0,1}
+  }
+  else if(key == q)
+  {
+    {-1,0}
+  }
+  else if(key == s)
+  {
+    {0,-1}
+  }
+  else if(key == d)
+  {
+    {1,0}
+  }
   // 👉️ Your code here 👈️
 }
 
 bool verifyBorder(const std::vector<std::pair<int, int>> &snake, int nx, int ny)
 {
+  return ((0 < snake[0].first < nx-1) and (0 < snake[0].second < ny-1))
   // 👉️ Your code here 👈️
 }
 
@@ -85,6 +117,9 @@ std::vector<std::pair<int, int>> setupSnake(int snake_len)
 
 void update_snake_coordinates(std::vector<std::pair<int, int>> &snake, bool eat, std::array<int, 2> dxdy)
 {
+  if (eat){
+    snake.push_back
+  }
   // 👉️ Your code here 👈️
 }
 
